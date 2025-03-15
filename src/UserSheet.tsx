@@ -4,7 +4,7 @@ import { userStatsService } from "./services/api";
 import { Entry } from "./services/api/dbService";
 import logger from "./utils/logger";
 
-const MY_USER_ID = import.meta.env.MY_USER_ID;
+const MY_USER_ID = import.meta.env.VITE_MY_USER_ID;
 
 const componentLogger = logger.component("UserSheet");
 
