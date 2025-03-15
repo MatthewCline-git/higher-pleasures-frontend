@@ -4,6 +4,8 @@ import { userStatsService } from "./services/api";
 import { Entry } from "./services/api/dbService";
 import logger from "./utils/logger";
 
+const MY_USER_ID = import.meta.env.MY_USER_ID;
+
 const componentLogger = logger.component("UserSheet");
 
 function UserSheet() {
@@ -17,7 +19,7 @@ function UserSheet() {
 
       try {
         setLoading(true);
-        const data = await userStatsService.getAllEntries();
+        const data = await userStatsService.getUserEntries(MY_USER_ID);
 
         componentLogger.info("Fetched user stats", {
           count: data.length,
