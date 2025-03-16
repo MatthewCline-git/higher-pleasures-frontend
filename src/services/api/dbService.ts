@@ -8,12 +8,28 @@ export interface Entry {
   raw_input: string;
 }
 
+export interface UserActivitySummary {
+  full_name: string;
+  activities: string[];
+  dates: string[];
+  data: {
+    [date: string]: {
+      [activity: string]: number;
+    };
+  };
+}
+
 const dbService = {
   getAllEntries: async (): Promise<Entry[]> => {
     return apiClient.get("/db/entries");
   },
   getUserEntries: async (userId: string): Promise<Entry[]> => {
     return apiClient.get(`/db/${userId}/entries`);
+  },
+  getUserActivitySummary: async (
+    userId: string,
+  ): Promise<UserActivitySummary> => {
+    return apiClient.get(`/db/${userId}/entries/activity-summary`);
   },
 };
 

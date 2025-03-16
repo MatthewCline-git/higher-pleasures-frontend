@@ -1,4 +1,4 @@
 import apiClient from "./client";
-import userStatsService from "./dbService";
+import dbService from "./dbService";
 
-export { apiClient, userStatsService };
+export { apiClient, dbService };
